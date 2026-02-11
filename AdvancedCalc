@@ -1,0 +1,45 @@
+# Simple Advanced Calculator
+
+def calculator():
+    print("🧮 Simple Python Calculator")
+    print("----------------------------")
+
+    while True:
+        try:
+            # Get user input
+            num1 = float(input("Enter the first number: "))
+            operator = input("Choose operation (+, -, *, /): ")
+            num2 = float(input("Enter the second number: "))
+
+            # Perform calculation
+            if operator == "+":
+                result = num1 + num2
+            elif operator == "-":
+                result = num1 - num2
+            elif operator == "*":
+                result = num1 * num2
+            elif operator == "/":
+                if num2 == 0:
+                    print("❌ Error: Division by zero is not allowed.")
+                    continue
+                result = num1 / num2
+            else:
+                print("❌ Invalid operator. Please choose +, -, *, or /.")
+                continue
+
+            # Display result
+            print(f"✅ Result: {result}")
+
+        except ValueError:
+            print("❌ Invalid input. Please enter numeric values only.")
+            continue
+
+        # Ask user if they want to continue
+        again = input("Do you want to calculate again? (yes/no): ").lower()
+        if again != "yes":
+            print("👋 Goodbye!")
+            break
+
+
+# Run the calculator
+calculator()
